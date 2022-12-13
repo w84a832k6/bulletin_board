@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Bulletin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('bulletin')->group(function () {
+    Route::get('/', [Bulletin::class, 'index']);
+    Route::post('/create', [Bulletin::class, 'create']);
+    Route::patch('/edit', [Bulletin::class, 'edit']);
+    Route::delete('/{id}/delete', [Bulletin::class, 'delete']);
 });
