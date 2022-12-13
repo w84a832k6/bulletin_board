@@ -8,7 +8,10 @@
 # install dependencies
 composer install
 
-#啟動一個內建伺服器http://localhost:8000或自行搭建HTTP伺服器指向public目錄
+# 建立資料庫
+php artisan migrate
+
+# 啟動一個內建伺服器http://localhost:8000或自行搭建HTTP伺服器指向public目錄
 php artisan serve
 ```
 
